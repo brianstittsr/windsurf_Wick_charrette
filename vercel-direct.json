@@ -1,18 +1,16 @@
 {
   "version": 2,
+  "public": true,
   "builds": [
     {
-      "src": "direct-server.js",
+      "src": "server.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/direct-server.js"
+      "dest": "/server.js"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }

@@ -4,14 +4,14 @@
   "description": "Web application for guiding Charette processes",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node direct-server.js",
+    "dev": "nodemon direct-server.js",
     "client": "cd client && npm start",
-    "build": "cd client && npm install && npm run build",
+    "build": "echo 'No build needed for direct server approach'",
     "dev-full": "concurrently \"npm run dev\" \"npm run client\"",
     "init-db": "node init-database.js",
     "test-db": "node test-database.js",
-    "vercel-build": "cd client && npm install && npm run build && node ../vercel-build-homepage.js"
+    "vercel-build": "echo 'Using direct server approach'"
   },
   "keywords": ["charette", "facilitation", "reasoning"],
   "author": "",
