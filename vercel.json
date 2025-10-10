@@ -6,10 +6,11 @@
       "use": "@vercel/node"
     },
     {
-      "src": "client/package.json",
+      "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "client/build",
+        "buildCommand": "npm run vercel-build"
       }
     }
   ],
@@ -19,12 +20,31 @@
       "dest": "/server.js"
     },
     {
+      "src": "/socket.io/(.*)",
+      "dest": "/server.js"
+    },
+    {
       "src": "/static/(.*)",
       "dest": "/client/build/static/$1"
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/client/build/assets/$1"
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "/client/build/favicon.ico"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/client/build/manifest.json"
     },
     {
       "src": "/(.*)",
       "dest": "/client/build/index.html"
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

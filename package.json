@@ -10,7 +10,8 @@
     "build": "cd client && npx react-scripts build",
     "dev-full": "concurrently \"npm run dev\" \"npm run client\"",
     "init-db": "node init-database.js",
-    "test-db": "node test-database.js"
+    "test-db": "node test-database.js",
+    "vercel-build": "bash ./vercel-build.sh && npm run build"
   },
   "keywords": ["charette", "facilitation", "reasoning"],
   "author": "",

@@ -4,7 +4,31 @@ const socketIo = require('socket.io');
 const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 const path = require('path');
-const { PHASES, REASONING_ALGORITHMS } = require('./phases');
+// Import phases with error handling
+let PHASES = [];
+let REASONING_ALGORITHMS = {};
+try {
+  const phasesModule = require('./phases');
+  PHASES = phasesModule.PHASES;
+  REASONING_ALGORITHMS = phasesModule.REASONING_ALGORITHMS;
+  console.log('Phases module loaded successfully');
+} catch (error) {
+  console.error('Error loading phases module:', error);
+  // Provide default phases if the file is missing
+  PHASES = [
+    { id: 'introduction', name: 'Introduction', description: 'Welcome and overview' },
+    { id: 'data_collection', name: 'Data Collection', description: 'Gather initial information' },
+    { id: 'analysis', name: 'Analysis', description: 'Explore constraints and assumptions' },
+    { id: 'ideation', name: 'Ideation', description: 'Generate ideas' },
+    { id: 'synthesis', name: 'Synthesis', description: 'Combine findings' },
+    { id: 'reporting', name: 'Reporting', description: 'Generate final report' }
+  ];
+  REASONING_ALGORITHMS = {
+    constraintAnalysis: { name: 'Constraint Analysis' },
+    assumptionTesting: { name: 'Assumption Testing' },
+    patternRecognition: { name: 'Pattern Recognition' }
+  };
+}
 
 // Load demo data if available
 let demoData = null;
@@ -23,12 +47,22 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
+    origin: process.env.NODE_ENV === 'production' 
+      ? ["https://charette-system.vercel.app", "https://*.vercel.app"] 
+      : ["http://localhost:3000", "http://localhost:3001", "http://localhost:3002"],
     methods: ["GET", "POST"]
   }
 });
 
-app.use(cors());
+// Configure CORS for both development and production
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production'
+    ? ['https://charette-system.vercel.app', /\.vercel\.app$/]
+    : ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // In-memory storage for demo purposes (now loaded above)
