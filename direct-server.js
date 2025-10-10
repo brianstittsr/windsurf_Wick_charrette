@@ -31,15 +31,33 @@ let reports = {};
 
 // Try to load demo data
 try {
-  const demoData = require('./demo-loader.js');
+  // Try the simplified demo data first
+  let demoData;
+  try {
+    demoData = require('./simple-demo-data.js');
+    console.log('Simplified demo data loaded successfully');
+  } catch (innerError) {
+    // If that fails, try the original demo loader
+    try {
+      demoData = require('./demo-loader.js');
+      console.log('Original demo data loaded successfully');
+    } catch (originalError) {
+      console.log('Could not load original demo data:', originalError.message);
+      throw new Error('No demo data available');
+    }
+  }
+  
   if (demoData) {
-    console.log('Demo data loaded successfully');
     charettes = { [demoData.charette.id]: demoData.charette };
     messages = demoData.messages;
     reports = { [demoData.charette.id]: demoData.report };
   }
 } catch (error) {
-  console.log('No demo data found - starting with empty database');
+  console.log('Starting with empty database. Error:', error.message);
+  // Continue with empty data
+  charettes = {};
+  messages = {};
+  reports = {};
 }
 
 // Default phases

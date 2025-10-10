@@ -1,12 +1,28 @@
 {
   "version": 2,
+  "public": true,
   "builds": [
     {
       "src": "direct-server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["simple-demo-data.js", "public/**"]
+      }
     }
   ],
   "routes": [
+    {
+      "src": "/favicon.ico",
+      "dest": "/direct-server.js"
+    },
+    {
+      "src": "/manifest.json",
+      "dest": "/direct-server.js"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/direct-server.js"
+    },
     {
       "src": "/(.*)",
       "dest": "/direct-server.js"
