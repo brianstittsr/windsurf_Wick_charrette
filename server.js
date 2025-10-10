@@ -65,6 +65,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+// Serve static files from the React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client/build')));
+}
+
 // In-memory storage for demo purposes (now loaded above)
 if (!demoData) {
   // Only initialize empty if no demo data
@@ -483,6 +488,16 @@ function identifyThemes(messageTexts) {
   });
 
   return themes;
+}
+
+// Catch-all route to serve the React app in production
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    // Exclude API routes
+    if (!req.path.startsWith('/api') && !req.path.startsWith('/socket.io')) {
+      res.sendFile(path.join(__dirname, 'client/build/index.html'));
+    }
+  });
 }
 
 const PORT = process.env.PORT || 5000;
