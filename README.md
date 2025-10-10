@@ -4,27 +4,31 @@ A web application designed to guide groups through the phases of a Charette proc
 
 ## Features
 
-- **Firebase Authentication**: Secure Google sign-in with user management
+- **Demo Mode**: Authentication disabled for easy testing and demonstration
+- **Material UI Design**: Modern, sleek interface with Google's Material Design
 - **Real-time Chat**: Participants can communicate with role-based messaging
 - **Phase-based Facilitation**: Structured guidance through 6 Charette phases
 - **B-MAD Method Integration**: Analyst and Project Manager roles for orchestration
 - **Reasoning Algorithms**: Automatic analysis of constraints, assumptions, and opportunities
 - **Report Generation**: Comprehensive final reports with findings and recommendations
-- **ChatGPT-style UI**: Clean, minimal interface for easy use
+- **Conversation Summary**: AI-powered session summarization for facilitator presentations
+- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 
 ## Architecture
 
-- Real-time communication via WebSocket and Firebase
-- **Database**: Firebase Firestore (production) / In-memory (development)
+- Real-time communication via Socket.IO
+- **Database**: In-memory storage (development/demo) - easily extensible to databases
 - RESTful API for charette management
 - Automatic reasoning analysis during analysis phase
 
-### Frontend (React + Firebase)
+### Frontend (React + Material UI)
 - Single-page application with real-time updates
-- Firebase authentication with Google sign-in
+- Material UI components for modern, professional design
+- Demo mode with automatic user setup
 - Role-based user interface with breakout room management
 - Live analysis display with question management
-- Modal-based report display
+- Modal-based report display with accordion organization
+- **Conversation Summary**: AI-powered session summarization with presentation scripts
 
 ### Database Schema (Firebase Firestore)
 
@@ -40,57 +44,36 @@ See `FIRESTORE_SCHEMA.md` for complete schema documentation.
 
 ## Setup & Installation
 
-### Firebase Configuration
-
-**📖 Complete Setup Guide**: See `FIREBASE_SETUP.md` for detailed instructions.
-
-**Quick Setup**:
+### Quick Setup
 ```bash
 # 1. Install dependencies
 npm install
+cd client && npm install
 
-# 2. Set up Firebase (follow FIREBASE_SETUP.md)
-cd client && ./setup-firebase.ps1
-
-# 3. Initialize database
-npm run init-db
-
-# 4. Test database connection (optional)
-npm run test-db
-
-# 5. Start the application
+# 2. Start the application
 npm run dev-full
 ```
 
-2. **Start the Application**
+### Alternative Startup Methods
 
-   **Option 1: All-in-one startup (Recommended)**
-   ```bash
+**All-in-one startup (Recommended)**
+```bash
 npm run dev-full
-   ```
+```
 
-   **Option 2: Manual startup**
-   ```bash
-   # Terminal 1: Backend
-   start-backend.bat
+**Manual startup**
+```bash
+# Terminal 1: Backend
+npm run dev
 
-   # Terminal 2: Frontend
-   start-frontend.bat
-   ```
+# Terminal 2: Frontend
+cd client && npm start
+```
 
-   **Option 3: Direct npm commands**
-   ```bash
-   # Terminal 1: Backend
-   npm run dev
-
-   # Terminal 2: Frontend
-   cd client && npm start
-   ```
-
-3. **Access the Application**
-   - Open http://localhost:3000 in your browser
-   - Backend API runs on http://localhost:5000
-   - Sign in with Google to access the application
+### Access the Application
+- Open http://localhost:3000 in your browser
+- Backend API runs on http://localhost:5000
+- No authentication required - starts directly in demo mode
 
 ## Usage
 
@@ -100,6 +83,31 @@ npm run dev-full
 5. **Analysis**: During the Analysis phase, messages are automatically analyzed for constraints and assumptions
 6. **Breakout Rooms**: Analysts can create breakout rooms with discussion questions. Participants are auto-assigned and can contribute ideas in real-time without waiting for others to speak
 7. **Generate Report**: After completing all phases, generate a comprehensive report including contributions from all breakout rooms
+
+### Conversation Summary Feature
+
+The Charette System includes an advanced **Conversation Summary** feature that provides facilitators with AI-powered tools to review and present session findings back to the group.
+
+#### **Key Capabilities:**
+- **Session Overview**: Total messages, participants, duration, and topics discussed
+- **Consensus Analysis**: Identifies areas of strong agreement and areas needing further discussion
+- **Participant Contributions**: Tracks engagement levels and key contributions from each participant
+- **Action Items Extraction**: Automatically identifies action items and next steps from the conversation
+- **Presentation Scripts**: Generates professional presentation scripts for facilitators
+
+#### **When to Use:**
+- **End of Session**: Summarize key findings before concluding
+- **Phase Transitions**: Review progress between major phases
+- **Decision Points**: Present consensus areas to guide decisions
+- **Stakeholder Updates**: Share session summaries with absent stakeholders
+
+#### **Generated Outputs:**
+- **Executive Summary**: High-level overview of session outcomes
+- **Consensus Areas**: Topics with strong participant agreement
+- **Areas of Concern**: Issues requiring further attention
+- **Action Items**: Specific next steps identified during discussion
+- **Participant Engagement**: Contribution levels and key insights
+- **Presentation Script**: Professional script for facilitator presentations
 
 ### Breakout Rooms
 
@@ -209,9 +217,9 @@ charette-system/
 
 ### Technologies Used
 - **Backend**: Node.js, Express, Socket.io
-- **Frontend**: React, Socket.io-client
-- **Styling**: CSS with ChatGPT-inspired design
-- **Real-time**: WebSocket communication
+- **Frontend**: React 19, Material UI, Socket.io-client
+- **Styling**: Material UI components with custom theme
+- **Real-time**: WebSocket communication via Socket.IO
 
 ## Future Enhancements
 
