@@ -11,7 +11,7 @@
     "dev-full": "concurrently \"npm run dev\" \"npm run client\"",
     "init-db": "node init-database.js",
     "test-db": "node test-database.js",
-    "vercel-build": "cd client && npm install && npm run build"
+    "vercel-build": "cd client && npm install && npm run build && node ../vercel-build-homepage.js"
   },
   "keywords": ["charette", "facilitation", "reasoning"],
   "author": "",

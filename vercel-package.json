@@ -1,0 +1,12 @@
+{
+  "name": "charette-system-vercel",
+  "version": "1.0.0",
+  "description": "Vercel deployment configuration for Charette System",
+  "scripts": {
+    "build": "cd client && npm install && npm run build",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

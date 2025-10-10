@@ -1,4 +1,24 @@
-<!DOCTYPE html>
+// This script ensures the homepage is properly built for Vercel
+const fs = require('fs');
+const path = require('path');
+
+console.log('Running Vercel build script for homepage...');
+
+// Paths
+const clientBuildDir = path.join(__dirname, 'client', 'build');
+const indexHtmlPath = path.join(clientBuildDir, 'index.html');
+const notFoundHtmlPath = path.join(clientBuildDir, '404.html');
+
+// Ensure the build directory exists
+if (!fs.existsSync(clientBuildDir)) {
+  console.log('Creating client build directory...');
+  fs.mkdirSync(clientBuildDir, { recursive: true });
+}
+
+// Create a simple index.html if it doesn't exist
+if (!fs.existsSync(indexHtmlPath)) {
+  console.log('Creating index.html...');
+  const indexHtml = `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -26,19 +46,6 @@
       border-bottom: 2px solid #f0f0f0;
       padding-bottom: 10px;
     }
-    .button {
-      display: inline-block;
-      background-color: #1976d2;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-    .button:hover {
-      background-color: #1565c0;
-    }
     .loading {
       display: inline-block;
       width: 50px;
@@ -62,16 +69,30 @@
     <div class="loading"></div>
     <p>Loading application...</p>
   </div>
-
-  <script>
-    // Check if we're on Vercel production
-    if (window.location.hostname.includes('vercel.app') || window.location.hostname !== 'localhost') {
-      // Redirect to client/build/index.html
-      window.location.href = '/client/build/index.html';
-    } else {
-      // Local development - redirect to localhost:3000
-      window.location.href = 'http://localhost:3000';
-    }
-  </script>
 </body>
-</html>
+</html>`;
+
+  fs.writeFileSync(indexHtmlPath, indexHtml);
+}
+
+// Create a 404.html that redirects to index.html
+console.log('Creating 404.html...');
+const notFoundHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0;url=/">
+  <title>Redirecting...</title>
+  <script>
+    window.location.href = '/';
+  </script>
+</head>
+<body>
+  <p>Redirecting to homepage...</p>
+</body>
+</html>`;
+
+fs.writeFileSync(notFoundHtmlPath, notFoundHtml);
+
+console.log('Vercel build script completed successfully!');
