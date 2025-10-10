@@ -1,0 +1,15 @@
+{
+  "name": "charette-system-minimal",
+  "version": "1.0.0",
+  "description": "Minimal version of Charette System for Vercel",
+  "main": "minimal-server.js",
+  "scripts": {
+    "start": "node minimal-server.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
