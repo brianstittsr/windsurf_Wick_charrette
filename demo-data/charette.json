@@ -1,0 +1,140 @@
+{
+  "title": "1971 Durham School Desegregation Summit",
+  "description": "Historic community dialogue between civil rights activist Ann Atwater and KKK leader C.P. Ellis, co-chaired by Howard Fuller. This landmark summit addressed the desegregation of Durham schools during the racially charged summer of 1971.",
+  "createdAt": "1971-07-15T09:00:00.000Z",
+  "currentPhase": 5,
+  "phases": [
+    {
+      "name": "Introduction",
+      "description": "Welcome and overview"
+    },
+    {
+      "name": "Data Collection",
+      "description": "Gather initial information"
+    },
+    {
+      "name": "Analysis",
+      "description": "Explore constraints and assumptions"
+    },
+    {
+      "name": "Ideation",
+      "description": "Generate creative solutions"
+    },
+    {
+      "name": "Synthesis",
+      "description": "Combine findings and develop recommendations"
+    },
+    {
+      "name": "Reporting",
+      "description": "Generate final report"
+    }
+  ],
+  "isActive": false,
+  "participants": [
+    {
+      "userId": "ann-atwater",
+      "userName": "Ann Atwater",
+      "role": "participant",
+      "joinedAt": "1971-07-15T09:00:00.000Z"
+    },
+    {
+      "userId": "cp-ellis",
+      "userName": "C.P. Ellis",
+      "role": "participant",
+      "joinedAt": "1971-07-15T09:00:00.000Z"
+    },
+    {
+      "userId": "howard-fuller",
+      "userName": "Howard Fuller",
+      "role": "analyst",
+      "joinedAt": "1971-07-15T09:00:00.000Z"
+    },
+    {
+      "userId": "community-member-1",
+      "userName": "Sarah Johnson",
+      "role": "participant",
+      "joinedAt": "1971-07-15T10:30:00.000Z"
+    },
+    {
+      "userId": "community-member-2",
+      "userName": "Robert Williams",
+      "role": "participant",
+      "joinedAt": "1971-07-15T10:45:00.000Z"
+    }
+  ],
+  "breakoutRooms": [
+    {
+      "name": "Parent Concerns Room",
+      "questions": [
+        "What are your main concerns about school desegregation?",
+        "How will this affect your children's education?",
+        "What support do parents need during this transition?"
+      ],
+      "participants": [
+        "ann-atwater",
+        "community-member-1"
+      ],
+      "createdAt": "1971-07-15T11:00:00.000Z"
+    },
+    {
+      "name": "Community Impact Room",
+      "questions": [
+        "How will desegregation change our neighborhoods?",
+        "What economic impacts should we consider?",
+        "How can we maintain community cohesion?"
+      ],
+      "participants": [
+        "cp-ellis",
+        "community-member-2"
+      ],
+      "createdAt": "1971-07-15T11:00:00.000Z"
+    },
+    {
+      "name": "Implementation Planning Room",
+      "questions": [
+        "What timeline works for implementation?",
+        "What resources are needed for success?",
+        "How do we measure progress and success?"
+      ],
+      "participants": [
+        "howard-fuller"
+      ],
+      "createdAt": "1971-07-15T11:00:00.000Z"
+    }
+  ],
+  "analysis": [
+    {
+      "type": "constraint",
+      "content": "Limited funding for school transportation and resources",
+      "keywords": [
+        "funding",
+        "transportation",
+        "resources"
+      ],
+      "confidence": 0.85,
+      "createdAt": "1971-07-15T14:30:00.000Z"
+    },
+    {
+      "type": "assumption",
+      "content": "All community members want immediate full integration",
+      "keywords": [
+        "integration",
+        "immediate",
+        "community"
+      ],
+      "confidence": 0.72,
+      "createdAt": "1971-07-15T15:00:00.000Z"
+    },
+    {
+      "type": "opportunity",
+      "content": "Cross-cultural dialogue can build understanding",
+      "keywords": [
+        "dialogue",
+        "understanding",
+        "cultural"
+      ],
+      "confidence": 0.91,
+      "createdAt": "1971-07-15T16:00:00.000Z"
+    }
+  ]
+}

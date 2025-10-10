@@ -1,0 +1,66 @@
+[
+  {
+    "roomId": "main",
+    "text": "Welcome everyone to this historic community summit. I'm Howard Fuller, and I'll be facilitating today's discussion.",
+    "userName": "Howard Fuller",
+    "userId": "howard-fuller",
+    "role": "analyst",
+    "timestamp": "1971-07-15T09:00:00.000Z"
+  },
+  {
+    "roomId": "main",
+    "text": "I want to thank Ann Atwater and C.P. Ellis for agreeing to co-chair this summit. This represents a significant step forward for our community.",
+    "userName": "Howard Fuller",
+    "userId": "howard-fuller",
+    "role": "analyst",
+    "timestamp": "1971-07-15T09:05:00.000Z"
+  },
+  {
+    "roomId": "main",
+    "text": "This desegregation issue has divided our community for too long. We need to find a way forward that works for everyone.",
+    "userName": "Ann Atwater",
+    "userId": "ann-atwater",
+    "role": "participant",
+    "timestamp": "1971-07-15T09:15:00.000Z"
+  },
+  {
+    "roomId": "main",
+    "text": "I may not agree with everything that's being proposed, but I'm here to listen and find solutions that protect our children's future.",
+    "userName": "C.P. Ellis",
+    "userId": "cp-ellis",
+    "role": "participant",
+    "timestamp": "1971-07-15T09:20:00.000Z"
+  },
+  {
+    "roomId": "room-1",
+    "text": "As a parent, I'm worried about my child's safety on long bus rides to schools outside our neighborhood.",
+    "userName": "Sarah Johnson",
+    "userId": "community-member-1",
+    "role": "participant",
+    "timestamp": "1971-07-15T11:30:00.000Z"
+  },
+  {
+    "roomId": "room-1",
+    "text": "Transportation safety is a valid concern. We need to ensure all children feel secure regardless of where they attend school.",
+    "userName": "Ann Atwater",
+    "userId": "ann-atwater",
+    "role": "participant",
+    "timestamp": "1971-07-15T11:35:00.000Z"
+  },
+  {
+    "roomId": "room-2",
+    "text": "Desegregation could change the character of our neighborhoods. We need to think about property values and community stability.",
+    "userName": "Robert Williams",
+    "userId": "community-member-2",
+    "role": "participant",
+    "timestamp": "1971-07-15T11:45:00.000Z"
+  },
+  {
+    "roomId": "room-2",
+    "text": "I've come to realize that protecting our children's education is more important than maintaining segregated neighborhoods.",
+    "userName": "C.P. Ellis",
+    "userId": "cp-ellis",
+    "role": "participant",
+    "timestamp": "1971-07-15T12:00:00.000Z"
+  }
+]
